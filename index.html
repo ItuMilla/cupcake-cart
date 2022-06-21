@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    
+    <div class="container" x-data="{ 
+        showCart: false, 
+        cupcakeTotal : 0.00,
+        cupcakeQty : 0,
+        cupcakeTotal : 0.00,
+        cupcakeQty : 0,
+        cupcakeTotal : 0.00, 
+        cupcakeQty : 0,
+        payNow : false,
+        paymentAmount : 0,
+        paymentMessage : '',
+        buycupcake() {
+            this.cupcakeTotal += 69.90;
+            this.cupcakeQty +=1
+        },
+
+        clearSmall_pizza() {
+            if (this.cupcakeQty > 0) {
+                this.cupcakeTotal -= 69.90;
+                this.cupcakeTotal -=1
+            }
+        },
+       cartTotal() {
+        return this.cupcakeTotal + this.cupcakeTotal + this.cupcakeTotal;
+
+        },
+
+        totalQty() {
+        return this.cupcakeQty + this.cupcakeQty + this.cupcakeQty  
+        },
+
+        totalQty() {
+            return this.cupcakeTotal + this.cupcakeTotal + this.cupcakeTotal ;
+        },
+
+        makePayment() {
+            if (this.paymentAmount == 0) {
+                this.paymentMessage = 'No amount entered!'
+            }
+
+            if (this.paymentAmount >= this.cartTotal() }{
+                this.paymentMessage = 'Payment successful!'
+
+                setTimeout(() => {
+                    this.payNow = false;
+                    this.clearCart()
+
+                }, 3000);
+
+            } else {
+                this.paymentMessage = 'Payment failed!'  
+            }
+        },
+        clearCart() {
+            this.cupcakeTotal : 0.00;
+            this.cupcakeQty : 0;
+            this.cupcakeTotal : 0.00;
+            this.cupcakeQty : 0;
+            this.cupcakeTotal : 0.00; 
+            this.cupcakeQty : 0;
+        }
+    }" >
+		<div class="header">
+			<div class="f3">
+                <h1>For the love of Cupcakes</h1>
+            <img src="http://www.cupcakeipsum.com/images/pink_pie.png" alt="" width="40">
+            <img src="http://www.cupcakeipsum.com/images/pink_muffin.png" alt="" width="40">
+            <img src="http://www.cupcakeipsum.com/images/green_muffin.png" alt="" width="40">
+
+            <small>Inpired by <a href="https://itumilla.github.io/pizza-pamphlet/">perfect-pizza</a> </small>
+            </div>
+
+			<div class="f1" >
+            <button x-on:click="showCart=true" ><img src="./Images/cart.png" width="30" alt="">show cart </button>
+			<strong x-show="totalQty() > 0"><span x-text="text=totalQty()"></span> pizzas in the cart.</strong>	
+				<!-- <span>0.00</span> -->
+			</div>
+		</div>
+
+		<div class="cart-box">
+            <div class="cart"x-show="showCart" >
+            </div>
+            <button x-on:click="showCart=false" ><img src="./Images/cart.png" width="30" alt="">close cart </button>
+            </div>
+			
+				<div class="cart">
+					<h2>Cart
+						<img src="./Images/cart.png" width="30" alt="">
+					</h2>
+				</div>
+
+				<table>
+					<tr x-show="cupcakeQty > 0">
+						<td>cupcake</td>
+						<td>
+                            <span x-text="cupcakeQty" ></span>
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0">+</button>
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0" >-</button>
+						</td>
+						<td>
+                          R<span x-text="cupcakeTotal.toFixed(2)"></span>
+                        </td>
+					</tr>
+					<tr>
+						<td>cupcake</td>
+						<td>
+                            <span x-text="cupcakeQty" ></span> 
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0">+</button>
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0" >-</button>
+						</td>
+						<td>
+                            R<span x-text="capcakeTotal.toFixed(2)"></span> 
+                        </td>
+					</tr>
+					<tr>
+						<td>cupcake</td>
+						<td>
+                            <span x-text="cupcakeQty" ></span>
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0">+</button>
+							<button x-on:click="cupcake" x-show="cupcakeQty > 0" >-</button>
+						</td>
+						<td>
+                        R<span x-text="cupcakeTotal.toFixed(2)"></span>
+                    </td>
+					</tr>
+					<tr x-show="cartTotal() > 0" >
+						<td colspan="2">Total</td>
+                    <td>
+                        R<span x-text="cartTotal().toFixed(2)" ></span> 
+                    </td>
+					</tr>
+					<tr >
+						<td colspan="2">
+
+                            <div x-show="payNow" >
+							<div class="message" >Message...</div>
+							<div>
+								<label for="">Payment amount</label>
+								<input class="input" type="number" placeholder="Payment amount" x-model="payAmount" >
+                                <button x-on:click="makePayment=" class="btn"><img src="./Images/shopping-icon.png" width="20" alt="">Pay now</button>
+							</div>
+                            <div>
+                            <!--<div x-text="payAmount" ></div>-->
+                    </div>
+                </div>
+
+				</td>
+				<td>
+					<button x-show="!payNow=true" x-on:click="payNow=true" class="btn" ><img src="./Images/shopping-icon.png" width="20" alt="">Pay</button>
+				</td>
+			</tr>
+		</table>
+
+<div class="cupcakes">
+
+    <div class="Cupcake">
+            <img src="http://www.cupcakeipsum.com/images/pink_pie.png" alt="">
+            <h2>cupcake</h2>
+            <h3>R 20.99</h3>
+            <button class="buy btn" x-on:click="cupcake" >
+                <img src="http://www.cupcakeipsum.com/images/pink_pie.png" alt="" width="20" >
+            Buy</button>
+
+            <div>
+                Cupcake ipsum dolor sit amet sugar plum bonbon. I love cookie jelly-o pudding I love I love muffin wafer. Apple pie carrot cake ice cream cake I love halvah I love danish I love.
+            </div>
+        </div>
+
+    <div class="Cupcake">
+      <img src="http://www.cupcakeipsum.com/images/pink_muffin.png" alt="">
+          <h2>cupcake</h2>
+            <h3>R 25.99</h3>
+            <button class="buy btn" x-on:click="cupcake">
+                <img src="http://www.cupcakeipsum.com/images/pink_muffin.png" alt="" width="20" >
+            Buy</button>
+
+            <div>
+                Cupcake ipsum dolor sit amet sugar plum bonbon. I love cookie jelly-o pudding I love I love muffin wafer. Apple pie carrot cake ice cream cake I love halvah I love danish I love.
+            </div>
+        </div>
+
+    <div class="Cupcake">
+      <h2>cupcake</h2>
+      <img src="http://www.cupcakeipsum.com/images/green_muffin.png" alt="">
+        <h3>R 30.99</h3>
+        <button class="buy btn" x-on:click="cupcake" >
+            <img src="http://www.cupcakeipsum.com/images/green_muffin.png" alt="" width="20" >
+        Buy</button>
+
+        <div>
+            Cupcake ipsum dolor sit amet sugar plum bonbon. I love cookie jelly-o pudding I love I love muffin wafer. Apple pie carrot cake ice cream cake I love halvah I love danish I love.
+      </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+[
+	{
+		"id" : 1,
+		"name": "Cupcake",
+		"price" : 23.75,
+		"image" : "http://www.cupcakeipsum.com/images/pink_pie.png"
+	},
+	{
+		"id" : 2,
+		"name": "Cupcake",
+		"price" : 31.55,
+		"image" : "http://www.cupcakeipsum.com/images/pink_muffin.png"
+	},
+	{
+		"id" : 3,
+		"name": "Cupcake",
+		"price" : 23.55,
+		"image" : "http://www.cupcakeipsum.com/images/green_muffin.png"
+	}
+
+]
